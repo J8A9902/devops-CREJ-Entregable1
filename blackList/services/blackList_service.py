@@ -15,16 +15,15 @@ def create_blackList_service(blackList):
     return message, status
 
 
-# def get_trayecto_by_id(id: int):
-#     message: str = ''
-#     status: int = 200
-#     print(id)
-#     try:
-#         trayecto = Trayecto.find_by_id(id)
-#         message = object_as_dict(trayecto)
-#     except Exception as e:
-#         status = 404
-#         message = {"Error": "No existe el trayecto con ese identificador."}
-#     print(id)
-#     return message, status
+def get_blackList_by_email(email: str):
+    message: str = ''
+    status: int = 200
+    print(id)
+    try:
+        blackList = BlackList.find_by_email(email)
+        message = object_as_dict(blackList)
+    except Exception as e:
+        status = 404
+        message = {"Error": "No existe el blackList con ese identificador."}
+    return message, status
 

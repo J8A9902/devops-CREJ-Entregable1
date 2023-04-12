@@ -1,20 +1,20 @@
-## Microservicio _Gestión de Trayectos_
+## Microservicio _Gestión de blackLists_
 
-Este microservicio se encarga de la gestión de trayectos (rutas). Dentro de sus funcionalidades se encuentran las siguientes:
+Este microservicio se encarga de la gestión de blackLists (rutas). Dentro de sus funcionalidades se encuentran las siguientes:
 
-- **Creación de trayectos**: Permite a un usuario autenticado, crear trayectos.
-- **Búsqueda de trayectos**: Permite buscar trayectos mediante el código del aeropuerto de origen o destino o la fecha del envío. 
-- **Consulta de un trayecto**: Permite a un usuario autenticado, obtener la información de un trayecto.
+- **Creación de blackLists**: Permite a un usuario autenticado, crear blackLists.
+- **Búsqueda de blackLists**: Permite buscar blackLists mediante el código del aeropuerto de origen o destino o la fecha del envío. 
+- **Consulta de un blackList**: Permite a un usuario autenticado, obtener la información de un blackList.
 - **Consulta la salud del microservicio**: Permite verificar si el componente se está ejecutando.
 
 Para mayor información consultar el siguiente enlace de la documentación.
 
-[Documentación de trayectos](https://github.com/MISW-4301-Desarrollo-Apps-en-la-Nube/entrega-1-proyecto-202311/wiki/Gesti%C3%B3n-de-trayectos)
+[Documentación de blackLists](https://github.com/MISW-4301-Desarrollo-Apps-en-la-Nube/entrega-1-proyecto-202311/wiki/Gesti%C3%B3n-de-blackLists)
 
 
 ## Estructura
 ````
-├── trayecto # Archivos y directorios de la aplicación Trayecto
+├── blackList # Archivos y directorios de la aplicación blackList
 |   ├── authentication # Directorio con archivos de autenticación
 |   ├── config # Directorio con variables de entorno
 |   ├── controllers # Directorio del controlador de la aplicación
@@ -41,7 +41,7 @@ coverage run -m pytest -s tests
 
 2) Ejecutar pruebas desde docker compose
 ```bash
-docker-compose exec trayecto-microservice coverage run -m pytest -s tests
+docker-compose exec blackList-microservice coverage run -m pytest -s tests
 ```
 
 3) Obtener cobertura de pruebas
@@ -51,5 +51,5 @@ coverage report -m
 
 4) Obtener cobertura de pruebas desde docker compose
 ```bash
-docker-compose exec trayecto-microservice coverage report -m
+docker-compose exec blackList-microservice coverage report -m
 ```

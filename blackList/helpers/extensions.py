@@ -1,7 +1,7 @@
 from datetime import timedelta
 from flask import Flask
 import os
-from controllers.blackList_controller import trayecto as trayecto1
+from controllers.blackList_controller import blackList as blackList1
 from config import *
 from database import db
 from models import *
@@ -14,5 +14,5 @@ def initialize_database(app: Flask) -> None:
     db.create_all()
 
 def register_blueprints(app: Flask) -> None:
-    app.register_blueprint(trayecto1)
+    app.register_blueprint(blackList1)
     
