@@ -1,7 +1,7 @@
 from datetime import timedelta
 from flask import Flask
 import os
-from controllers.trayecto_controller import trayecto as trayecto1
+from controllers.blackList_controller import trayecto as trayecto1
 from config import *
 from database import db
 from models import *

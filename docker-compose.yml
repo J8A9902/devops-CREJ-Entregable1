@@ -1,39 +1,27 @@
 version: '3'
 services:
-  auth-microservice:
-    container_name: auth-microservice
+  blacklist-microservice:
+    container_name: blacklist-microservice
     ports:
       - "3000:3000"
-    build: ./auth
-    working_dir: /auth_microservice/
+    build: ./blackList
+    working_dir: /blacklist_microservice/
     environment:
-      DATABASE_URL: postgresql+psycopg2://postgres:postgres@users_db/auth
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@blackList_db/emails
     depends_on:
-      - users_db
-    networks:
-      - auth-network
-      - app-network
+      - blackList_db
     volumes:
-      - ./auth/:/auth_microservice
+      - ./blackList/:/blacklist_microservice
 
-  users_db:
-    container_name: users_db
+  blackList_db:
+    container_name: blackList_db
     image:
       postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=auth
+      - POSTGRES_DB=emails
     ports:
       - '5432:5432'
     volumes:
-      - ./auth/:/db/
-    networks:
-      - auth-network
-
-  
-networks:
-  auth-network:
-    driver: bridge
-  app-network:
-    driver: bridge
+      - ./blackList/:/db/

@@ -2,9 +2,11 @@ FROM python:3.9
 
 RUN groupadd -r user && useradd -r -g user user
 
+ENV PYTHONUNBUFFERED=1
+
 EXPOSE 3000
 
-WORKDIR /blackList_microservice
+WORKDIR /blacklist_microservice
 
 ADD requirements.txt ./
 
