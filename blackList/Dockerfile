@@ -3,6 +3,7 @@ FROM python:3.9
 RUN groupadd -r user && useradd -r -g user user
 
 ENV PYTHONUNBUFFERED=1
+ENV DATABASE_URL="db-url"
 
 EXPOSE 3000
 
