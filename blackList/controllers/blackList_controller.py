@@ -45,6 +45,13 @@ def get_blackList_id(email):
 
     return response
 
+@blackList.route('/health', methods=['GET']) 
+def get_health():
+    
+    response = { 'body': 'Funcionando'}, 200
+
+    return response
+
 
 def login_required():
     headers = flask.request.headers
