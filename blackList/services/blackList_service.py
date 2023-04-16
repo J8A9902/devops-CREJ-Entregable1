@@ -5,7 +5,20 @@ from helpers.utils import object_as_dict
 def create_blackList_service(blackList):
     status: int = 200
     try:
-        new_blackList = BlackList(blackList['email'], blackList['app_uuid'], blackList['blocked_reason'], '99.65.122.3')
+        if blackList['email'] == ' ':
+            status = 400
+            message = {"Error": "Email ingresado no es válido."}
+            return message, status
+        elif blackList['app_uuid'] == ' ':
+            status = 400
+            message = {"Error": "El UUID de la app no es válido"}
+            return message, status
+        elif blackList['blocked_reason'] == ' ':
+            status = 400
+            message = {"Error": "Debe completar la razón del bloqueo."}
+            return message, status
+
+        new_blackList = BlackList(blackList['email'], blackList['app_uuid'], blackList['blocked_reason'], blackList['ip'])
         new_blackList.save()
         message = {"Message": "Se agrego el email correctamente"}
     except Exception as e:
