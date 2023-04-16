@@ -12,5 +12,5 @@ class BaseModel(db.Model):
         db.session.rollback()
 
     @classmethod
-    def find_by_id(cls, id: int):
-        return cls.query.filter_by(id=id).first()
+    def find_by_email(cls, email: str):
+        return cls.query.filter_by(email=email).first()

@@ -1,1 +1,1 @@
-from .trayecto import Trayecto
+from .blackList import blackList
