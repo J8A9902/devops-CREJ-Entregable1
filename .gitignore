@@ -9,5 +9,5 @@
 #VSC Settings
 .vscode
 .idea/*
-
+*.zip
 .coverage

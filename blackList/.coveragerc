@@ -1,5 +1,0 @@
-[run]
-omit = 
-    /usr/lib/*
-    models/blackList.py
-    helpers/utils.py

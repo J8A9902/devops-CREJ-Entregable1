@@ -18,6 +18,7 @@ def create_blackList():
         data['email'] = data['email']
         data['app_uuid'] = data['app_uuid']
         data['blocked_reason'] = data['blocked_reason']
+        data['ip'] = request.remote_addr
     except Exception as e:
         print("--------------------------------")
         status = 400
@@ -42,6 +43,13 @@ def get_blackList_id(email):
 
     except Exception as e:
         response = { 'body': 'error en el correo'}, 400
+
+    return response
+
+@blackList.route('/health', methods=['GET']) 
+def get_health():
+    
+    response = { 'body': 'Funcionando'}, 200
 
     return response
 

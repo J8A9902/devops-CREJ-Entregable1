@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "6dc69070-6d82-48af-8afa-67441da4a16a",
+		"name": "Test BlackList",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20306858"
+	},
+	"item": [
+		{
+			"name": "Creación sin correo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"app_uuid\": \"465789\",\r\n    \"blocked_reason\":\"Utilizo la cuenta de rafael para comprar criptomonedas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://prueba2blacklist-env.eba-qrsbaxyu.us-east-2.elasticbeanstalk.com/blacklists",
+					"protocol": "http",
+					"host": [
+						"prueba2blacklist-env",
+						"eba-qrsbaxyu",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"blacklists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creación sin UUID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Ejemplo2@jsdfhd.co\",\r\n    \"blocked_reason\":\"Utilizo la cuenta de rafael para comprar criptomonedas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://prueba2blacklist-env.eba-qrsbaxyu.us-east-2.elasticbeanstalk.com/blacklists",
+					"protocol": "http",
+					"host": [
+						"prueba2blacklist-env",
+						"eba-qrsbaxyu",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"blacklists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creación reason",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Ejemplo2@jsdfhd.co\",\r\n    \"blocked_reason\":\"Utilizo la cuenta de rafael para comprar criptomonedas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://prueba2blacklist-env.eba-qrsbaxyu.us-east-2.elasticbeanstalk.com/blacklists",
+					"protocol": "http",
+					"host": [
+						"prueba2blacklist-env",
+						"eba-qrsbaxyu",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"blacklists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar correo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/blacklists/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blacklists",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
