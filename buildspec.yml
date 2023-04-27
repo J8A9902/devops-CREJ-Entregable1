@@ -13,6 +13,8 @@ phases:
 
   post_build:
     commands:
+      - echo Executing unit test
+      - docker run -t blacklist_app python -m unittest discover -s tests
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 681953886347.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest
