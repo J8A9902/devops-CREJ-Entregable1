@@ -1,0 +1,27 @@
+version: 0.
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/v4j1r6q5
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t blacklist_app .
+      - docker tag blacklist_app:latest public.ecr.aws/v4j1r6q5/blacklist_app:latest
+  # Define job to run the unit tests in the Docker container
+  test:
+    commands:
+      - echo executing unit test
+      - docker run -t blacklist_app python -m unittest discover -s tests
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push public.ecr.aws/v4j1r6q5/blacklist_app:latest
+artifacts:
+  files:
+    - '**/*'
