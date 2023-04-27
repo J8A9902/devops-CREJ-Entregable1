@@ -1,4 +1,4 @@
-version: 1.0
+version: 0.2
 phases:
   pre_build:
     commands:
@@ -10,7 +10,7 @@ phases:
       - echo Building the Docker image...          
       - docker build -t blacklist_app .
       - docker tag blacklist_app:latest public.ecr.aws/v4j1r6q5/blacklist_app:latest
-      
+
   test:
     commands:
       - echo executing unit test
