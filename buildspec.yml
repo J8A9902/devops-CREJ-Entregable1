@@ -3,19 +3,19 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/v4j1r6q5
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 681953886347.dkr.ecr.us-east-2.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t blacklist_app .
-      - docker tag blacklist_app:latest public.ecr.aws/v4j1r6q5/blacklist_app:latest
+      - docker tag blacklist_app:latest 681953886347.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push public.ecr.aws/v4j1r6q5/blacklist_app:latest
+      - docker push 681953886347.dkr.ecr.us-east-2.amazonaws.com/blacklist_app:latest
 artifacts:
   files:
     - '**/*'
