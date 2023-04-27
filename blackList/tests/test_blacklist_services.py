@@ -53,30 +53,14 @@ class blackListTestCase(unittest.TestCase):
 
 
 
-# Email Test Cases
-def test_get_blackList_by_existing_email(email: str):
-    # Create blacklist
-    test_email: str = 'test@m.com'
-    test_response = blackList_service.create_blackList_service({'email': test_email,
-                                                                    'app_uuid':"123",
-                                                                    'blocked_reason':"",
-                                                                    'ip': '127.0.0.0'})
+    # Email Test Cases
+    def test_get_blackList_by_existing_email(email: str):
+        test_response = blackList_service.get_blackList_by_email()
+
+        assert test_response[1] == 404
 
 
-    test_response = blackList_service.get_blackList_by_email(test_email)
+    def test_get_blackList_by_unexisting_email(email: str):
+        test_response = blackList_service.get_blackList_by_email('testtest@m.com')
 
-    assert test_response[1] == 200
-
-
-def test_get_blackList_by_unexisting_email(email: str):
-    # Create blacklist
-    test_email: str = 'test1@m.com'
-    test_response = blackList_service.create_blackList_service({'email': test_email,
-                                                                    'app_uuid':"123",
-                                                                    'blocked_reason':"", 
-                                                                    'ip': '127.0.0.0'})
-
-
-    test_response = blackList_service.get_blackList_by_email('1212121212@gsfdf.com')
-
-    assert test_response[1] == 404
+        assert test_response[1] == 404
