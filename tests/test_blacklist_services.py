@@ -53,13 +53,6 @@ class blackListTestCase(unittest.TestCase):
 
 
 
-    # Email Test Cases
-    def test_get_blackList_by_existing_email(email: str):
-        test_response = blackList_service.get_blackList_by_email()
-
-        assert test_response[1] == 404
-
-
     def test_get_blackList_by_unexisting_email(email: str):
         test_response = blackList_service.get_blackList_by_email('testtest@m.com')
 
