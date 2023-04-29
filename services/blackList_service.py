@@ -20,7 +20,7 @@ def create_blackList_service(blackList):
 
         new_blackList = BlackList(blackList['email'], blackList['app_uuid'], blackList['blocked_reason'], blackList['ip'])
         new_blackList.save()
-        message = {"Message": "Se agrego el email correctamente"}
+        message = {"Message": "Se agrego el email de forma correcta:"}
     except Exception as e:
         status = 412
         message = f'Error: {e}'
