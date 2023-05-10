@@ -18,6 +18,10 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 125149540185.dkr.ecr.us-east-2.amazonaws.com/blacklist:latest
+      - echo Writing Image Definitions file...
+      - printf '[{"name":"Container-app-python","imageUri":"125149540185.dkr.ecr.us-east-2.amazonaws.com/blacklist:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"125149540185.dkr.ecr.us-east-2.amazonaws.com/blacklist:latest"}' > imageDetail.json
+      - cat imagedefinitions.json 
 artifacts:
   files:
     - '**/*'
