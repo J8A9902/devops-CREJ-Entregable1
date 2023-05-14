@@ -13,7 +13,7 @@ class blackListTestCase(unittest.TestCase):
         print('----------------------------------------------')
         print(test_response)
 
-        assert test_response[1] == 402
+        assert test_response[1] == 400
     
     # Prueba de crear un blackList sin APP_UUID
     def test_uuid_create_blackList(self):
