@@ -49,7 +49,7 @@ def get_blackList_id(email):
 @blackList.route('/health', methods=['GET']) 
 def get_health():
     
-    response = { 'body': 'Funcionando Blue Green'}, 200
+    response = { 'body': 'Funcionando Blue Green!!! V2'}, 200
 
     return response
 
