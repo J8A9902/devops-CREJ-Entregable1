@@ -15,6 +15,9 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN ["chmod", "+x", "newrelic.sh"]
+RUN ["/bin/bash", "./newrelic.sh"]
+
 RUN chown -R user:user .
 RUN ["chmod", "+x", "run_service.sh"]
 
