@@ -1,5 +1,6 @@
 FROM python:3.9
 
+RUN apt-get update && apt-get install -y sudo
 RUN groupadd -r user && useradd -r -g user user
 
 ENV PYTHONUNBUFFERED=1
@@ -15,8 +16,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN ["chmod", "+x", "newrelic.sh"]
-RUN ["/bin/bash", "./newrelic.sh"]
+RUN chmod +x newrelic.sh
+RUN /bin/bash ./newrelic.sh
 
 RUN chown -R user:user .
 RUN ["chmod", "+x", "run_service.sh"]
