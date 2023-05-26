@@ -26,6 +26,6 @@ RUN ["chmod", "+x", "run_service.sh"]
 
 CMD ["/bin/bash", "./run_service.sh"]
 
-ENTRYPOINT ["newrelic-admin", "run-program"]
+ENTRYPOINT ["NEW_RELIC_CONFIG_FILE=newrelic.ini", "newrelic-admin", "run-program"]
 
 USER user
