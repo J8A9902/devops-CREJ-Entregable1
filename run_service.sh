@@ -1,1 +1,1 @@
-NEW_RELIC_CONFIG_FILE=newrelic.ini newrelic-admin run-program gunicorn -b 0.0.0.0:3000 application:application
+gunicorn -b 0.0.0.0:3000 application:application
